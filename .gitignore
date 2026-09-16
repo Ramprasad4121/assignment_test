@@ -1,0 +1,5 @@
+node_modules/
+blockchain/out/
+blockchain/cache/
+*.log
+.DS_Store
