@@ -1,6 +1,4 @@
-const axios = require('axios');
 const asyncHandler = require("express-async-handler");
-const asyncErrorHandler = require("../utils/asyncErrorHandler");
 const { checkPermission } = require("../modules/roles-and-permissions/rp-repository");
 const { ApiError } = require("../utils");
 

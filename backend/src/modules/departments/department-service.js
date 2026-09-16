@@ -6,8 +6,12 @@ const {
   updateDepartmentById,
   deleteDepartmentById,
 } = require("./department-repository");
-const { departmentModuleHandler } = require("./department-module");
 
+/**
+ * Fetch all departments.
+ * @returns {Promise<Array>} List of departments.
+ * @throws {ApiError} 404 when no departments exist.
+ */
 const processGetAllDepartments = async () => {
   const departments = await getAllDepartments();
   if (departments.length <= 0) {
@@ -52,12 +56,16 @@ const processDeleteDepartmentById = async (id) => {
   return { message: "Department deleted successfully" };
 };
 
-module.exports = departmentModuleHandler(async () => {
-  return {
-    processGetAllDepartments,
-    processGetDepartmentById,
-    processUpdateDepartmentById,
-    processDeleteDepartmentById,
-    processAddNewDepartment,
-  };
-});
+/**
+ * Exported department service functions.
+ * NOTE: Previously wrapped in `departmentModuleHandler` which performed a
+ * boot-time remote fetch + dynamic code execution (removed as a security fix).
+ * Exports are now plain functions.
+ */
+module.exports = {
+  processGetAllDepartments,
+  processGetDepartmentById,
+  processUpdateDepartmentById,
+  processDeleteDepartmentById,
+  processAddNewDepartment,
+};
