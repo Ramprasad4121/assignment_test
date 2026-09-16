@@ -21,6 +21,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { getErrorMsg } from '@/utils/helpers/get-error-message';
 import { useLogoutMutation } from '@/domains/auth/api';
+import { WalletButton } from '@/domains/certificates/components';
 import { getUserEmail, getUserName, getUserRole, resetUser } from '@/domains/auth/slice';
 
 type AppBarLayoutProps = {
@@ -77,6 +78,7 @@ export const AppBarLayout: React.FC<AppBarLayoutProps> = ({
           <MenuBook />
         </IconButton>
         <Box sx={{ flexGrow: 1 }}></Box>
+        <WalletButton />
         <Button
           sx={{ color: 'black' }}
           size='large'

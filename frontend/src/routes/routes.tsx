@@ -20,6 +20,7 @@ import {
 } from '@/domains/notice/pages';
 import { AddStaff, EditStaff, ListStaffs, ViewStaff } from '@/domains/staff/pages';
 import { AccountPage } from '@/domains/account/pages';
+import { CertificatesPage, IssueCertificatePage } from '@/domains/certificates/pages';
 import { EditSectionPage, ListSectionPage } from '@/domains/section/pages';
 import { EditDepartmentPage, ListDepartmentsPage } from '@/domains/department/pages';
 import { ErrorPage, NotFound } from '@/components/errors';
@@ -83,6 +84,8 @@ export const routes = [
       { path: 'departments/edit/:id', element: <EditDepartmentPage /> },
       { path: 'notices/recipients', element: <ListNoticeRecipients /> },
       { path: 'notices/recipients/edit/:id', element: <EditNoticeRecipientPage /> },
+      { path: 'certificates', element: <CertificatesPage /> },
+      { path: 'certificates/issue', element: <IssueCertificatePage /> },
       { path: '*', element: <NotFound /> }
     ]
   },
